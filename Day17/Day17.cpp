@@ -2,33 +2,6 @@
 
 using namespace std;
 
-/*
-    Combo operands 0 through 3 represent literal values 0 through 3.
-    Combo operand 4 represents the value of register A.
-    Combo operand 5 represents the value of register B.
-    Combo operand 6 represents the value of register C.
-    Combo operand 7 is reserved and will not appear in valid programs.
-
-
-The adv instruction does reg_a / (2^combo) and puts result in reg_a.
-
-The bxl instruction calculates the bitwise XOR reg_b ^ literal and stores the result in reg_b.
-
-The bst instruction calculates combo % 8 (keeping only its lowest 3 bits) and puts result in reg_b.
-
-The jnz instruction does nothing if the reg_a is 0. Otherwise, it jumps by setting the instruction pointer to the value of its literal operand. I
-f this instruction jumps, the instruction pointer is not increased by 2 after this instruction.
-
-The bxc instruction calculates the bitwise XOR reg_b ^ reg_c and stores the result in register B.
-(For legacy reasons, this instruction reads an operand but ignores it.)
-
-The out instruction calculates combo % 8, then outputs that value. (If a program outputs multiple values, they are separated by commas.)
-
-The bdv instruction does reg_a / (2^combo) and puts result in reg_b.
-
-The cdv instruction does reg_a / (2^combo) and puts result in reg_c.
-*/
-
 enum {adv, bxl, bst, jnz, bxc, out, bdv, cdv};
 
 typedef char int8;
